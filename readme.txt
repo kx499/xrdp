@@ -1,3 +1,16 @@
+This is a fork of xrdp to be used as a simple honeypot. Everything is the same with teh exception that it logs username/password and will never 
+succesfully login. 
+
+To install under Ubuntu:
+git clone https://github.com/kx499/xrdp.git
+cd xrdp
+sudo apt-get install autoconf libtool libpam0g-dev libx11-dev libxfixes-dev libssl-dev libxrandr-dev libxrandr2
+sudo ./bootstrap
+sudo ./configure
+sudo make
+sudo make install
+
+Original Readme:
 
 xrdp 0.9.0
 
