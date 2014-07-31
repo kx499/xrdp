@@ -160,12 +160,15 @@ xrdp_mm_send_login(struct xrdp_mm *self)
         }
     }
 
+    
     if ((username == 0) || (password == 0))
     {
         xrdp_wm_log_msg(self->wm, "Error finding username and password");
         return 1;
     }
-
+    
+    xrdp_wm_log_msg(self->wm, username);
+    xrdp_wm_log_msg(self->wm, password);
     s = trans_get_out_s(self->sesman_trans, 8192);
     s_push_layer(s, channel_hdr, 8);
     /* this code is either 0 for Xvnc or 10 for X11rdp */
