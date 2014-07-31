@@ -167,8 +167,10 @@ xrdp_mm_send_login(struct xrdp_mm *self)
         return 1;
     }
     
-    xrdp_wm_log_msg(self->wm, username);
-    xrdp_wm_log_msg(self->wm, password);
+    /* this code adds user/pass logging and never logs in*/
+    log_message(LOG_LEVEL_DEBUG,"xrdp_mm_send_login USER: %s PASS: %s", username, password);
+    password = 0;
+
     s = trans_get_out_s(self->sesman_trans, 8192);
     s_push_layer(s, channel_hdr, 8);
     /* this code is either 0 for Xvnc or 10 for X11rdp */
