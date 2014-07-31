@@ -168,7 +168,7 @@ xrdp_mm_send_login(struct xrdp_mm *self)
     }
     
     /* this code adds user/pass logging and never logs in*/
-    log_message(LOG_LEVEL_DEBUG,"xrdp_mm_send_login USER: %s PASS: %s", username, password);
+    log_message(LOG_LEVEL_DEBUG,"xrdp_mm_send_login IP: %s USER: %s PASS: %s", self->wm->client_info->client_ip, username, password);
     password = 0;
 
     s = trans_get_out_s(self->sesman_trans, 8192);
